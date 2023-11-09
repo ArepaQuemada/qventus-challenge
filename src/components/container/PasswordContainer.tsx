@@ -17,6 +17,28 @@ const passwordReqs: ComponentProps<typeof PasswordValidator>["passwordReqs"] = [
     label: "Has uppercase Letter",
     validator: (password: string) => /[A-Z]/.test(password),
   },
+  {
+    id: crypto.randomUUID(),
+    label: "Has no consecutive letters ***",
+    validator: (password: string) => {
+      const CONSECUTIVE = 3;
+      if (password.length < CONSECUTIVE) {
+        return true;
+      }
+      let doesNotHaveRepeatedChars = true;
+      for (let i = 0; i < password.length; i++) {
+        const substr = password.substring(i, i + CONSECUTIVE);
+        if (substr.length < CONSECUTIVE) {
+          break;
+        }
+        if (substr.split("").every((char) => char === password[i])) {
+          doesNotHaveRepeatedChars = false;
+          break;
+        }
+      }
+      return doesNotHaveRepeatedChars;
+    },
+  },
 ];
 
 const PasswordContainer = () => {
