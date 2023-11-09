@@ -21,6 +21,8 @@ const PasswordValidator = ({
   title,
   value,
 }: PasswordValidatorProps & ComponentProps<typeof Textfield>) => {
+  const isEveryValueValid = passwordReqs.every((req) => req.validator(value));
+
   return (
     <>
       <h1>{title}</h1>
@@ -40,6 +42,11 @@ const PasswordValidator = ({
           })}
         </div>
       </PasswordValidatorWrapper>
+      <p>
+        {isEveryValueValid
+          ? "Congratulations! Your password is safe"
+          : "Your password is not very safe"}
+      </p>
     </>
   );
 };
