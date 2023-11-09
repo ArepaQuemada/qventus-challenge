@@ -1,27 +1,26 @@
-# React + TypeScript + Vite
+# Qventus Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My approach for this assessment.
+Requirements: https://docs.google.com/document/d/1IKiW6vvaysuuOaWWpId9E9PDSOIJcAD6S22YVUffg7U/edit?usp=sharing
 
-Currently, two official plugins are available:
+## Tech Stack 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I've configured a Vite project with React and Typescript. I used styled components for styling, allowing for easy extension through inheritance. I used vitest + testing library and userEvent API for unit testing porpuses
 
-## Expanding the ESLint configuration
+## Patterns
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+I decided to break down the UI into self-contained components, I made a component for password textfield and status circles, with props to set up styles and wording. Then I integrate both components into a PasswordValidator component. For state I used a popular pattern which is lifting up state into a container component to handle updates for its children
 
-- Configure the top-level `parserOptions` property like this:
+## Scripts
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+To start dev server 
+
+```
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To run tests 
+
+```
+npm run test
+```
