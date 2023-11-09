@@ -1,5 +1,6 @@
 import { ComponentProps, useState } from "react";
 import PasswordValidator from "../ui/password-validator/PasswordValidator";
+import { PasswordContainerWrapper } from "./styled";
 
 const passwordReqs: ComponentProps<typeof PasswordValidator>["passwordReqs"] = [
   {
@@ -45,14 +46,14 @@ const PasswordContainer = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <main>
+    <PasswordContainerWrapper>
       <PasswordValidator
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         passwordReqs={passwordReqs}
         title="Password Component"
       />
-    </main>
+    </PasswordContainerWrapper>
   );
 };
 

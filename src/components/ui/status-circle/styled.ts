@@ -5,6 +5,10 @@ export const StatusCircleWrapper = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin: 0.5rem;
+  & label {
+    font-weight: bolder;
+  }
 `;
 
 export const Circle = styled.div<{ status: StatusCircleProps["status"] }>`
@@ -16,7 +20,7 @@ export const Circle = styled.div<{ status: StatusCircleProps["status"] }>`
   text-align: center;
   vertical-align: middle;
   & > span {
-    font-weight: bold;
+    font-weight: bolder;
     color: #fff;
   }
 `;

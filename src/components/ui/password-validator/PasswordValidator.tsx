@@ -1,6 +1,7 @@
 import { ComponentProps } from "react";
 import Textfield from "../textfield/TextField";
 import StatusCircle from "../status-circle/StatusCircle";
+import { PasswordValidatorWrapper } from "./styled";
 
 type PasswordReqs = {
   id: string;
@@ -23,16 +24,22 @@ const PasswordValidator = ({
   return (
     <>
       <h1>{title}</h1>
-      <Textfield value={value} onChange={onChange} />
-      {passwordReqs.map((reqs) => {
-        return (
-          <StatusCircle
-            key={reqs.id}
-            label={reqs.label}
-            status={reqs.validator(value) ? "success" : "error"}
-          />
-        );
-      })}
+      <PasswordValidatorWrapper>
+        <div>
+          <Textfield value={value} onChange={onChange} />
+        </div>
+        <div>
+          {passwordReqs.map((reqs) => {
+            return (
+              <StatusCircle
+                key={reqs.id}
+                label={reqs.label}
+                status={reqs.validator(value) ? "success" : "error"}
+              />
+            );
+          })}
+        </div>
+      </PasswordValidatorWrapper>
     </>
   );
 };
