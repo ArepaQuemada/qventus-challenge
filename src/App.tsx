@@ -1,5 +1,11 @@
+import PasswordContainer from "./components/container/PasswordContainer";
+
 function App() {
-  return <>Hello</>;
+  return (
+    <>
+      <PasswordContainer />
+    </>
+  );
 }
 
 export default App;
